@@ -134,3 +134,80 @@ public class AbstractionDemo {
 }
 
 ```
+ဘာကို ပြသသလဲ?
+- Messenger ဆိုတဲ့ abstract class က “message ပို့နိုင်ရမယ်” ဆိုတဲ့ concept ကို သတ်မှတ်ထားပါတယ်။
+
+- FacebookMessenger, WhatsAppMessenger တို့က အစစ်အမှန် implementation တွေဖြစ်ပြီး သူတို့ပေါ်မူတည်ပြီး message ပို့ပုံက မတူနိုင်ပါတယ်။
+
+- Main program မှာတော့ “Messenger” ဆိုတဲ့ abstraction ကိုသာ သုံးပြီး အတွင်းမှာ ဘယ်လို ပို့သလဲဆိုတာကို မစဉ်းစားဘဲ အသုံးချနိုင်ပါတယ်။
+
+👉 ဒီလိုနဲ့ abstraction က သုံးသူ (developer) ကို အစိတ်အပိုင်းတွေကို မစဉ်းစားဘဲ “object တစ်ခုလုံး” အနေနဲ့ သုံးနိုင်စေပါတယ်။
+
+
+```java
+// Abstraction Example with Car System
+
+// Abstract class
+abstract class Car {
+    // abstract methods (no body)
+    public abstract void startEngine();
+    public abstract void stopEngine();
+
+    // normal method
+    public void applyBrakes() {
+        System.out.println("Brakes applied!");
+    }
+}
+
+// Concrete class 1
+class ElectricCar extends Car {
+    @Override
+    public void startEngine() {
+        System.out.println("Starting electric motor...");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Stopping electric motor...");
+    }
+}
+
+// Concrete class 2
+class PetrolCar extends Car {
+    @Override
+    public void startEngine() {
+        System.out.println("Starting petrol engine...");
+    }
+
+    @Override
+    public void stopEngine() {
+        System.out.println("Stopping petrol engine...");
+    }
+}
+
+// Main class
+public class CarSystemDemo {
+    public static void main(String[] args) {
+        // Using abstraction: we only care about "Car", not HOW it works inside
+        Car tesla = new ElectricCar();
+        tesla.startEngine();
+        tesla.applyBrakes();
+        tesla.stopEngine();
+
+        Car toyota = new PetrolCar();
+        toyota.startEngine();
+        toyota.applyBrakes();
+        toyota.stopEngine();
+    }
+}
+
+```
+ဘာကို ပြသသလဲ?
+- Car ဆိုတဲ့ abstract class က “startEngine”, “stopEngine”, “applyBrakes” ဆိုတဲ့ concept တွေကို သတ်မှတ်ထားပါတယ်။
+
+- ElectricCar, PetrolCar တို့က အစစ်အမှန် implementation တွေဖြစ်ပြီး engine အလုပ်လုပ်ပုံက မတူနိုင်ပါတယ်။
+
+- Main program မှာတော့ “Car” ဆိုတဲ့ abstraction ကိုသာ သုံးပြီး အတွင်းမှာ ဘယ်လို engine အလုပ်လုပ်သလဲဆိုတာကို မစဉ်းစားဘဲ အသုံးချနိုင်ပါတယ်။
+
+👉 ဒီလိုနဲ့ abstraction က developer ကို အစိတ်အပိုင်းတွေကို မစဉ်းစားဘဲ “Car” ဆိုတဲ့ object တစ်ခုလုံးအနေနဲ့ သုံးနိုင်စေပါတယ်။
+
